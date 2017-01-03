@@ -24,10 +24,58 @@
 	function thinkertree_register_menus() {
 		register_nav_menus(
 			array(
-				'main_menu' => __('Main Menu')
+				'main_menu'	=> __('Main Menu')
 			)
 		);
 	}
+	add_action('init', 'thinkertree_register_menus');
+
+	/* ------ CUSTOM POST TYPE ------ */
+	function thinkertree_custom_posttype() {
+		
+		// Set UI labels for CPT
+		$labels = array(
+			'name'	=>	_x('Projects', 'Post Type General Name', 'thinkertree'),
+			'singular_name'	=>	_x('Project', 'Post Type Singular Name', 'thinkertree'),
+			'menu_name'	=>	__('Projects', 'thinkertree'),
+			'parent_item_colon'	=>	__('Parent Project', 'thinkertree'),
+			'all_items'	=>	__('All Projects', 'thinkertree'),
+			'view_item'	=>	__('View Project', 'thinkertree'),
+			'add_new_item'	=>	__('Add New Project', 'thinkertree'),
+			'add_new'	=>	__('Add New', 'thinkertree'),
+			'edit_item'	=>	__('Edit Project', 'thinkertree'),
+			'update_item'	=>	__('Update Project', 'thinkertree'),
+			'search_items'	=>	__('Search Project', 'thinkertree'),
+			'not_found'	=>	__('Not Found', 'thinkertree'),
+			'not_found_in_trash'	=>	__('Not found in Trash', 'thinkertree'),
+		);
+
+		// Set other options for CPT
+		$args = array(
+			'label'	=>	__('projects', 'thinkertree'),
+			'description'	=>	__('Thinker Tree projects', 'thinkertree'),
+			'labels'	=> $labels,
+			'supports'	=>	array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields'),
+			// 'taxonomies'	=>	array('IF ANY'),
+			'hierarchical'	=>	false,
+			'public'	=> true,
+			'show_ui'	=> true,
+			'show_in_menu'	=>	true,
+			'show_in_nav_menus'	=>	true,
+			'show_in_admin_bar'	=>	true,
+			// 'menu_position'	=>	5,
+			'can_export'	=> true,
+			'has_archive'	=>	true,
+			'exclude_from_search'	=>	false,
+			'publicly_queryable'	=>	true,
+			'capability_type'	=>	'page',
+		);
+
+		//Registering CPT
+		register_post_type('projects', $args);
+
+	}
+	add_action('init', 'thinkertree_custom_posttype', 0);
 
 	/* ------ CUSTOM IMAGE SIZES ------ */
 	function thinkertree_custom_image_sizes() {
