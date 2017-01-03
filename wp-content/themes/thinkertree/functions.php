@@ -56,7 +56,7 @@
 			'description'	=>	__('Thinker Tree projects', 'thinkertree'),
 			'labels'	=> $labels,
 			'supports'	=>	array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields'),
-			// 'taxonomies'	=>	array('IF ANY'),
+			'taxonomies'	=>	array('category'),
 			'hierarchical'	=>	false,
 			'public'	=> true,
 			'show_ui'	=> true,
