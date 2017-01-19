@@ -1,3 +1,40 @@
 /*
 ** NAVIGATION STYLES
 */
+
+/* MAIN NAVBAR */
+.navbar.navbar-default {
+	
+	// Logo
+	.navbar-brand {
+		height: auto;
+
+		img {
+			max-width: 103px;
+			width: 100%;
+		}
+	}
+	
+	// Main menu list
+	.navbar-nav {
+		li {
+			margin: 15px;
+
+			a {
+				font-family: $title-font;
+				font-weight: $medium;
+				text-transform: uppercase;
+				color: white;
+				border-bottom: solid 4px transparent;
+				padding: 0;
+				padding-bottom: 15px;
+				@include all-transition();
+
+				&:hover {
+					border-bottom: solid 4px white;
+					@include all-transition();
+				}
+			}
+		}
+	}
+}

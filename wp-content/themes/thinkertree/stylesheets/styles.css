@@ -8800,9 +8800,39 @@ button.close {
 /*
 ** TYPOGRAPHY STYLES
 */
+/* line 5, ../sass/partials/_typography.scss */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* line 9, ../sass/partials/_typography.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Brandon Grotesque", sans-serif;
+  text-transform: uppercase;
+}
+
+/* line 14, ../sass/partials/_typography.scss */
+p, li {
+  font-family: "Avenir", sans-serif;
+}
+
 /*
 ** LAYOUT STYLES
 */
+/* line 5, ../sass/partials/_layout.scss */
+.container {
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* line 11, ../sass/partials/_layout.scss */
+img {
+  max-width: 100%;
+}
+
 /*
 ** HOME PAGE STYLES
 */
@@ -8818,6 +8848,45 @@ button.close {
 /*
 ** NAVIGATION STYLES
 */
+/* MAIN NAVBAR */
+/* line 9, ../sass/partials/_nav.scss */
+.navbar.navbar-default .navbar-brand {
+  height: auto;
+}
+/* line 12, ../sass/partials/_nav.scss */
+.navbar.navbar-default .navbar-brand img {
+  max-width: 103px;
+  width: 100%;
+}
+/* line 20, ../sass/partials/_nav.scss */
+.navbar.navbar-default .navbar-nav li {
+  margin: 15px;
+}
+/* line 23, ../sass/partials/_nav.scss */
+.navbar.navbar-default .navbar-nav li a {
+  font-family: "Brandon Grotesque", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: white;
+  border-bottom: solid 4px transparent;
+  padding: 0;
+  padding-bottom: 15px;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+/* line 33, ../sass/partials/_nav.scss */
+.navbar.navbar-default .navbar-nav li a:hover {
+  border-bottom: solid 4px white;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+
 /*
 ** BUTTON STYLES
 */

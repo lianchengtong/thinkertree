@@ -40,7 +40,7 @@
 	        <span class="icon-bar"></span>
 	      </button>
 	      <a class="navbar-brand" href="#">
-	      	<img src="<?php echo get_template_directory_uri(); ?>/images/logo-thinkertree.png" alt="Thinker Tree Studio Logo" />
+	      	<img src="<?php echo get_template_directory_uri(); ?>/images/logo-thinkertree.png" alt="Thinker Tree Studio Logo" />                                      
 	      </a>
 	    </div><!-- .navbar-header -->
 

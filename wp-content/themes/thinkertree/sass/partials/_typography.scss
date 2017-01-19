@@ -1,3 +1,16 @@
 /*
 ** TYPOGRAPHY STYLES
 */
+
+html {
+	@include font-smoothing();
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: $title-font;
+	text-transform: uppercase;
+}
+
+p, li {
+	font-family: $base-font;
+}

@@ -14,6 +14,7 @@
 
 		wp_enqueue_script('bootstrap_js', get_template_directory_uri() . '/javascripts/bootstrap.min.js', 'jquery', '3.3.6', true);
 		wp_enqueue_script('matchHeight_js', get_template_directory_uri() . '/javascripts/jquery.matchHeight.js', 'jquery', '1.0.0', true);
+		wp_enqueue_script('mixitup_js', get_template_directory_uri() . '/javascripts/mixitup.min.js', array(), '3.1.5', true);
 		wp_enqueue_script('main_js', get_template_directory_uri() . '/javascripts/main.js', 'jquery', '1.0.0', true);
 
 	}
@@ -55,7 +56,7 @@
 			'description'	=>	__('Thinker Tree projects', 'thinkertree'),
 			'labels'	=> $labels,
 			'supports'	=>	array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'comments', 'revisions', 'custom-fields'),
-			'taxonomies'	=>	array('category'),
+			// 'taxonomies'	=>	array('category'),
 			'hierarchical'	=>	false,
 			'public'	=> true,
 			'show_ui'	=> true,
@@ -76,9 +77,37 @@
 	}
 	add_action('init', 'thinkertree_custom_posttype', 0);
 
+
+	/* ------ CUSTOM POST TYPE CATEGORIES ------ */
+	function thinkertree_custom_categories() {
+    $field_args = array(
+        'labels' => array(
+        'name'              => 'Categories', 'taxonomy general name',
+        'singular_name'     => 'Category', 'taxonomy singular name',
+        'search_items'      => 'Search Categories',
+        'all_items'         => 'All Categories',
+        'parent_item'       => 'Parent Category',
+        'parent_item_colon' => 'Parent Category:',
+        'edit_item'         => 'Edit Category',
+        'update_item'       => 'Update Category',
+        'add_new_item'      => 'Add New Category',
+        'new_item_name'     => 'New Category',
+        'menu_name'         => 'Categories',
+        ),
+        'hierarchical' => true
+    );
+    register_taxonomy( 'projects-category', 'projects', $field_args );
+	}
+	add_action( 'init', 'thinkertree_custom_categories', 0 );
+
 	/* ------ CUSTOM IMAGE SIZES ------ */
 	function thinkertree_custom_image_sizes() {
 		add_theme_support('post-thumbnails');
+		add_image_size('fullwidth', 1140, 9999);
+		add_image_size('bgimage', 1920, 9999);
+		add_image_size('bgimage-small', 1000, 9999);
+		add_image_size('square', 800, 800, true);
+		add_image_size('square-small', 400, 400, true);
 	}
 	add_action('after_setup_theme', 'thinkertree_custom_image_sizes');
 
@@ -116,5 +145,11 @@
 	add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 	/* ------ TINYMCE ADVANCE ------ */
+
+
+	/* ------ ACF CONFIG ------ */
+	if(function_exists('acf_add_options_page')) {
+		acf_add_options_page('Footer Settings');
+	}
 
 ?>
